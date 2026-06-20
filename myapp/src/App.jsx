@@ -13,50 +13,76 @@ import './App.css'
 import Title from "./assets/components/Title"
 import Fetch from "./assets/components/fetch"
 
+import { Routes, Route } from 'react-router-dom' 
+import { Link } from "react-router-dom"
+
 
 
   const App = () => {
   return (
     <div className="app">
-    {/* component */}
-    <Welcome />
 
-    {/* jsx expression */}
-    <Hello />
+    <nav className="nav-links">
+      <ul>
+      <li><Link to="/componentEx">Component Example</Link></li>
+      <li><Link to="/jsxEx">JSX Example</Link></li>
+      <li><Link to="/propsEx">Props Example</Link></li>
+      <li><Link to="/stateEx">State Example</Link></li>
+      <li><Link to="/eventEx">Event Handling Example</Link></li>
+      <li><Link to="/conditionEx">Conditional Rendering Example</Link></li>
+      <li><Link to="/listEx">List Rendering Example</Link></li>
+      <li><Link to="/formEx">Form Example</Link></li>
+      <li><Link to="/useEffectEx">UseEffect Example</Link></li>
+      <li><Link to="/useRefEx">UseRef Example</Link></li>
+      <li><Link to="/contextEx">UseContext Example</Link></li>
+      <li><Link to="/fetchEx">Fetch Data Example</Link></li>  
+      </ul>
+    </nav>   
 
-    {/* props */}
-    <Child name="React" />
+    <h1>👆BrowserRouter Example</h1>
 
-    {/* useState */}
-    <State/>
+      <Routes>
+        {/* component */}
+        <Route path="/componentEx" element={<Welcome />} />
 
-    {/* Event Handling */}
-    <Event/>
+         {/* jsx expression */}
+        <Route path="/jsxEx" element={<Hello />} />
 
-    {/* conditional rendering */}
-    <Condition/>
+        {/* props */}
+        <Route path="/propsEx" element={<Child name="React" />} />
 
-    {/* list Rendering */}
-    <List/>
+        {/* useState */}
+        <Route path="/stateEx" element={<State />} />
 
-    {/* form */}
-    <Form/>
+        {/* Event Handling */}
+        <Route path="/eventEx" element={<Event />} />
 
-    {/* UseEffect */}
-    <UseEffect/>
+        {/* conditional rendering */}
+        <Route path="/conditionEx" element={<Condition />} />
 
-    {/* UseRef */}
-    <UseRef/>
-    
+        {/* list Rendering */}
+        <Route path="/listEx" element={<List />} />
 
-    {/* Usecontext */}
-    <Context.Provider value={"Learning react"}>
-      <Title/>
-    </Context.Provider>
+        {/* form */}  
+        <Route path="/formEx" element={<Form />} />
 
-    {/* fetch data from api */}
-    <Fetch/>
+        {/* UseEffect */}
+        <Route path="/useEffectEx" element={<UseEffect />} />
 
+        {/* UseRef */}
+        <Route path="/useRefEx" element={<UseRef />} />
+
+        {/* Usecontext */}
+        <Route path="/contextEx" element={
+          <Context.Provider value={"Learning react"}>
+            <Title/>
+          </Context.Provider>
+        } />
+
+        {/* fetch data from api */}
+        <Route path="/fetchEx" element={<Fetch />} />
+      </Routes> 
+  
      </div>
   )
 }
